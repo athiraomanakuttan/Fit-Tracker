@@ -1,0 +1,10 @@
+<%- include('./layout/header')  %>
+<%- include('./layout/navbar')  %>
+
+
+<script>
+    fetch('/getBMIreport')
+    .then((res)=> res.json())
+    .then((data)=> console.log(JSON.stringify(data)))
+    .catch((error)=> console.log(error))
+</script>

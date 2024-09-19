@@ -1,0 +1,65 @@
+<%-include('./layout/header') %>
+<div class="container mt-3">
+    <div class="row ">
+        <div class="col-6 mt-5  border-curv ">
+          <div class="signupDiv">
+            <form action="/signup" method="post" id="signup-form">
+              <h1>Sign Up</h1>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Name</label>
+                <input type="text" class="form-control" id="userName" name="userName" required>
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label">Email address</label>
+                <input type="email" class="form-control" id="userEmail" name="userEmail" aria-describedby="emailHelp">
+                
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputPassword1" class="form-label">Password</label>
+                <input type="password" class="form-control"  id="userPassword" name="userPassword">
+              </div>
+              <div class="mb-3 form-check">
+                <input type="checkbox" class="form-check-input" id="exampleCheck1">
+                <label class="form-check-label" for="exampleCheck1">Save Credentials</label>
+              </div>
+              <div class="flex"><button type="submit" class="btn btn-primary">Join Now</button></div>
+              <div class="text-center mt-3">
+                <a href="/">Already have Account</a>
+                
+              </div>
+            </form>
+      
+          </div>
+        </div>
+        <div class="col-6 mt-5"><img src="../assets/signup.jpg" alt="" class="img-fluid border-curv"></div>
+
+    </div>
+</div>
+<script>
+    document.getElementById('signup-form').addEventListener('submit',(e)=>{
+        e.preventDefault()
+        let userName = document.getElementById('userName').value
+        let userEmail= document.getElementById('userEmail').value
+        let userPassword= document.getElementById('userPassword').value
+        console.log("userName",userName)
+        const emailRegex = /^(?!.\.\d)(?=[a-zA-Z0-9._%+-][a-zA-Z]{3,}\d*@)[a-zA-Z0-9._%+-]+@[a-z]{3,}\.[a-z]{2,}$/i;
+        if(!userName.trim() || userName.trim() === null)
+        errorMessage("Please Enter your name")
+        else if(!userEmail || !emailRegex.test(userEmail))
+        errorMessage("Email id is not in reqied format")
+        else if(!userPassword.trim() || userEmail.trim() === null)
+        errorMessage("Password is required")
+        else
+        document.getElementById('signup-form').submit()
+
+        
+    })
+    
+    function errorMessage(message)
+    {
+        Swal.fire({
+  icon: "error",
+  text: message,
+});
+    }
+</script>
