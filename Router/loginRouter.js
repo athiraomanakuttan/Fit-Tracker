@@ -25,6 +25,7 @@ router.post('/additional-details',isLogined,loginController.additionalData)
 // ------------------------- Advanced features ----------------- 
 
 router.get('/bmi-details',isLogined,userController.bmiDetails)
+router.get('/get-BMI-report',isLogined,userController.getBmiDetails)
 
 
 module.exports = router;

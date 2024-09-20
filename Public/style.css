@@ -10,6 +10,10 @@
     --primary: #fbb406;
    color: var(--primary);
 }
+.primary
+{
+  color: var(--primary);
+}
 .border-curv{
     border-radius: 10px;
 }
@@ -203,4 +207,7 @@ a{
 .day-label {
     text-align: center;
     margin-top: 5px;
+}
+#form-div{
+  display: none;
 }

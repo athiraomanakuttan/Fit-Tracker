@@ -1,10 +1,285 @@
-<%- include('./layout/header')  %>
-<%- include('./layout/navbar')  %>
+<%- include('./layout/header') %> <%- include('./layout/navbar') %>
 
+<div>
+  <div id="form-div">
+    <div class="container">
+      <div class="row">
+        <div class="col-6 mx-auto border">
+          <form id="details-form">
+            <div class="modal-body">
+              <h4 class="mb-5">To calculate BMI need some more information</h4>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <input
+                      type="text"
+                      id="height"
+                      name="height"
+                      class="form-control"
+                      placeholder="eg :160 cm"
+                      required
+                    />
+                    <label class="form-label" for="form3Example1">Height</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <input
+                      type="text"
+                      id="weight"
+                      name="weight"
+                      class="form-control"
+                      placeholder="eg: 80 kg"
+                      required
+                    />
+                    <label class="form-label" for="form3Example2">Weight</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <input
+                      type="text"
+                      id="age"
+                      name="age"
+                      class="form-control"
+                      placeholder="eg : 20"
+                      required
+                    />
+                    <label class="form-label" for="form3Example1">Age</label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <select
+                      class="form-select"
+                      id="gender"
+                      name="gender"
+                      aria-label="Default select example"
+                    >
+                      <option value="male" selected>Male</option>
+                      <option value="female">Female</option>
+                      <option value="Other">Other</option>
+                    </select>
+                    <label class="form-label" for="form3Example2">Gender</label>
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <select
+                      class="form-select"
+                      id="activity_level"
+                      name="activity_level"
+                      aria-label="Default select example"
+                    >
+                      <option value="lightly active" selected>
+                        lightly active
+                      </option>
+                      <option value="moderately active">
+                        moderately active
+                      </option>
+                      <option value="very active">very active</option>
+                    </select>
+                    <label class="form-label" for="form3Example2"
+                      >Activity Level</label
+                    >
+                  </div>
+                </div>
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <select
+                      class="form-select"
+                      id="fitness_goal"
+                      name="fitness_goal"
+                      aria-label="Default select example"
+                    >
+                      <option value="Weight loss" selected>Weight loss</option>
+                      <option value="muscle gain">muscle gain</option>
+                      <option value="maintenance">maintenance</option>
+                    </select>
+                    <label class="form-label" for="form3Example2"
+                      >Fitness Goals</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <div class="row mb-4">
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <input
+                      type="text"
+                      id="targeted_weight"
+                      name="targeted_weight"
+                      class="form-control"
+                      required
+                      placeholder="eg : 50 kg"
+                    />
+                    <label class="form-label" for="form3Example1"
+                      >Target Weight
+                    </label>
+                  </div>
+                </div>
+                <div class="col">
+                  <div data-mdb-input-init class="form-outline">
+                    <select
+                      class="form-select"
+                      id="exercise_preferences"
+                      name="exercise_preferences"
+                      aria-label="Default select example"
+                    >
+                      <option value="strength training" selected>
+                        strength training
+                      </option>
+                      <option value="cardio">cardio</option>
+                      <option value="Weight training">Weight training</option>
+                    </select>
+                    <label class="form-label" for="form3Example2"
+                      >Exercise Preferences</label
+                    >
+                  </div>
+                </div>
+              </div>
+
+              <!-- Checkbox -->
+            </div>
+            <div class="modal-footer">
+              <button
+                type="submit"
+                class="btn btn-primary"
+                data-bs-dismiss="modal"
+                id="submit-btn"
+              >
+                Save
+              </button>
+            </div>
+          </form>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div id="bmi-div">
+    <div class="container">
+        <div class="row">
+            <div class="col-md-10 mx-auto  ">
+                <div class="m-5 p-3 border">
+                    <h3 class="text-center">Here is your Body Mass Index (BMI)</h3>
+                    <div class="container">
+                        <div class="row">
+                            <div class="col-6">
+                                <div class="card m-2">
+                                    <div class="card-body">
+                                      <h3 class="card-title text-center primary mb-2" id="BMI-status">Over Weight</h3>
+                                      <p class="card-text text-center">BMI status</p>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card m-2">
+                                    <div class="card-body">
+                                      <h3 class="card-title text-center mb-2 primary" id="current-BMI">28.4</h3>
+                                      <p class="card-text text-center ">Current BMI</p>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card m-2">
+                                    <div class="card-body">
+                                        <h3 class="card-title text-center mb-2 primary" > <span id="current-weight">00</span> Kg</h3>
+                                        <p class="card-text text-center ">Current Weight</p>
+                                    </div>
+                                  </div>
+                            </div>
+                            <div class="col-6">
+                                <div class="card m-2">
+                                    <div class="card-body">
+                                        <h3 class="card-title text-center mb-2 primary" ><span id="current-height">0.00</span>  cm</h3>
+                                        <p class="card-text text-center ">Current Height</p>
+                                    </div>
+                                  </div>
+                            </div>
+                            
+                    </div><div class="row">
+                        <h5 class="text-center mt-3">BMI Classification Chart </h5>
+                        <div class="col-6">
+                            <div class="card m-2">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center mb-2 text-danger">Under 18.5</h5>
+                                    <p class="card-text text-center">Underweight</p>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card m-2">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center mb-2 text-success">18.5 - 24.9</h5>
+                                    <p class="card-text text-center ">Normal weight</p>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card m-2">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center mb-2 primary">25.0 - 29.9</h5>
+                                    <p class="card-text text-center ">Overweight</p>
+                                </div>
+                              </div>
+                        </div>
+                        <div class="col-6">
+                            <div class="card m-2">
+                                <div class="card-body">
+                                    <h5 class="card-title text-center mb-2 text-danger">30.0 and above</h5>
+                                    <p class="card-text text-center ">Obesity</p>
+                                </div>
+                              </div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
 
 <script>
-    fetch('/getBMIreport')
-    .then((res)=> res.json())
-    .then((data)=> console.log(JSON.stringify(data)))
-    .catch((error)=> console.log(error))
+  fetch("/get-BMI-report")
+    .then((res) => res.json())
+    .then((data) => {
+      console.log(JSON.stringify(data));
+      if (data.message)
+      {
+        document.getElementById("form-div").style.display = "block";
+        document.getElementById("bmi-div").style.display = "none";
+      }
+     else 
+     {
+      const userData = data.BMIData.otherDetails[0]
+      console.log(userData)
+      document.getElementById("form-div").style.display = "none";
+      document.getElementById("bmi-div").style.display = "block";
+      document.getElementById('BMI-status').innerHTML =userData.BMI_status
+      document.getElementById('current-BMI').innerHTML =userData.BMI
+      document.getElementById('current-weight').innerHTML =userData.weight
+      document.getElementById('current-height').innerHTML = userData.height
+
+      if(userData.BMI_status === 'Underweight')
+      document.getElementById('BMI-status').style.color="red"
+      else if(userData.BMI_status === 'Normal')
+      document.getElementById('BMI-status').style.color="green"
+    else if(userData.BMI_status === 'Obesity')
+      document.getElementById('BMI-status').style.color="red"
+      else if(userData.BMI_status === 'Overweight')
+      document.getElementById('BMI-status').style.color="red"
+
+
+     }
+    })
+    .catch((error) => console.log(error));
 </script>

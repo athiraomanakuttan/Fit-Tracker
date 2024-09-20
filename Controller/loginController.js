@@ -121,7 +121,9 @@ const additionalData = async (req, res) => {
     );
     if (!addData.value)
       res.status(400).json({ message: "could't update the record" });
-    else res.status(200).json({ message: "Data added successfully" });
+    else{ 
+        res.status(200).json({ message: "Data added successfully" });
+    } 
   } catch (err) {
     res.status(400).json({ message: "could't update the record" });
   }
@@ -146,6 +148,7 @@ const calculateBMIData = (height, weight) => {
     return null;
 };
 
+// ---------------------------- calculate Calories ----------------------------- 
 
 module.exports = {
   loginPage,
