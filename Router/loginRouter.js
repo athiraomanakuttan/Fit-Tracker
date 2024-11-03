@@ -26,6 +26,6 @@ router.post('/additional-details',isLogined,loginController.additionalData)
 
 router.get('/bmi-details',isLogined,userController.bmiDetails)
 router.get('/get-BMI-report',isLogined,userController.getBmiDetails)
-
-
+router.get('/get-calorie-details',isLogined,userController.getCalorieDetails)
+router.get('/get-calorie-data',isLogined,userController.getCaloriData)
 module.exports = router;

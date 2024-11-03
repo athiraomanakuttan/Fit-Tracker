@@ -1,0 +1,26 @@
+<%- include('./layout/header') %> <%- include('./layout/navbar') %>
+
+
+
+
+
+
+<script>
+
+const getCalories = async ()=>{
+    const responce = await fetch('/get-calorie-details',{
+        method:'GET',
+        headers:{'Content-Type':'application/json'}
+    })
+    const data = await responce.json()
+    if(!responce.ok)
+    {
+        alert("Something went wrong")
+    }
+    else
+    {
+        console.log("data from fetch",data)
+    }
+}
+getCalories()
+</script>
